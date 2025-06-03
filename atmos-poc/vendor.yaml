@@ -1,0 +1,51 @@
+apiVersion: atmos/v1
+kind: AtmosVendorConfig
+metadata:
+  name: iac-vendoring
+  description: Atmos vendoring manifest for atmos-tf-poc
+spec:
+  imports: []
+  sources:
+    - component: "kv"
+      source: "git@github.com/clouddrove/terraform-azure-key-vault.git//?ref={{.Version}}"
+      version: "1.2.0"
+      targets:
+        - "components/terraform/kv"
+      included_paths:
+        - "**/*.tf"
+        - "**/*.tfvars"
+        - "**/*.md"
+      tags:
+        - kv
+    - component: "vnet"
+      source: "git@github.com/clouddrove/terraform-azure-vnet.git//?ref={{.Version}}"
+      version: "1.0.4"
+      targets:
+        - "components/terraform/vnet"
+      included_paths:
+        - "**/*.tf"
+        - "**/*.tfvars"
+      tags:
+        - vnet
+    - component: "lb"
+      source: "git@github.com/clouddrove/terraform-azure-load-balancer.git//?ref={{.Version}}"
+      version: "1.1.2"
+      targets:
+        - "components/terraform/lb"
+      included_paths:
+        - "**/*.tf"
+        - "**/*.tfvars"
+        - "**/*.md"
+      tags:
+        - lb
+    - component: "vm"
+      source: "git@github.com/clouddrove/terraform-azure-virtual-machine.git//?ref={{.Version}}"
+      version: "2.0.4"
+      targets:
+        - "components/terraform/vm"
+      included_paths:
+        - "**/*.tf"
+        - "**/*.tfvars"
+        - "**/*.md"
+      tags:
+        - vm

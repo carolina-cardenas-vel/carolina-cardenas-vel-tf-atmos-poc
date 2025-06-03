@@ -1,0 +1,50 @@
+---
+import:
+  - dev/_defaults
+
+vars:
+  environment: dev
+  location: westus
+  resource_group_name: rg-tf-poc
+  static_allocation_method: Static
+
+components:
+  terraform:
+    vnet:
+      vars:
+        vnet_name: vnet-tf-poc
+        subnet_name: subnet-tf-poc
+        sg_name: sgname-tf-poc
+        address_prefixes: ["10.0.1.0/24"]
+        address_space: ["10.0.0.0/16"]
+        natgw_name: natgw-public-ip-tf-poc
+        standard_sku: Standard
+    lb:
+      vars: 
+        lb_public_ip_name: lb-public-ip-tf-poc
+        lb_name: lb-tf-poc
+        ip_config_name: LoadBalancerFrontEnd
+        port_app: 80
+        http_probe_name: http-probe-tf-poc
+        http_rule_name: http-rule-tf-poc
+        http_protocol: Http
+        backend_pool_name: backend-address-pool-tf-poc
+        path_app: /quote
+        tcp_protocol: Tcp
+    vm:
+      vars:
+        subnet_id: '{{ (atmos.Component "vnet" .stack).outputs.subnet_id }}' 
+        nic_name: nic-tf-poc
+        nic_ip_config_name: internal
+        ssh_pubkey: "~/.ssh/ssh-vm-tf-poc.pub"
+        backend_address_pool_id: '{{ (atmos.Component "lb" .stack).outputs.backend_address_pool_id }}'
+        vm_name: vm-tf-poc
+        vm_username: adminuser
+        vm_ip_allocation_method: Dynamic
+        vm_size: Standard_F2
+        image_version: latest
+        image_sku: 22_04-lts
+        image_publisher: Canonical
+        image_offer: 0001-com-ubuntu-server-jammy
+        os_disk_caching: ReadWrite
+        os_disk_storage_account_type: Standard_LRS
