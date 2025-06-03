@@ -10,7 +10,8 @@ This project uses Terraform to deploy a small Flask app.
 1. Git clone this repository
 2. Navigate to the folder `tf-poc`
 3. Create the `backend.tf.json` file. Take the `backend.tf.json.example`, rename it and adapt it.
-3. Run the following Terraform commands:
+4. Create an ssh key with this name and path `~/.ssh/ssh-vm-tf-poc.pub`. It will be used for setting up the VM.
+5. Run the following Terraform commands:
 
 - `terraform init`
 
@@ -18,11 +19,11 @@ This project uses Terraform to deploy a small Flask app.
 
 - `terraform apply`
 
-4. Applying the `lb` module will print three outputs. Copy the value of `public_ip` and paste it into the browser. The app is reachable under `http://<loadbalancer-ip>/quote`.
+6. Applying the `lb` module will print three outputs. Copy the value of `public_ip` and paste it into the browser. The app is reachable under `http://<loadbalancer-ip>/quote`.
 
-5. Wait for some time to access the app after the VM has been deployed. It needs a moment to provision the necessary packages to run the app. 
+7. Wait for some time to access the app after the VM has been deployed. It needs a moment to provision the necessary packages to run the app. 
 
-6. Be humbled by that quote of the day. 
+8. Be humbled by that quote of the day. 
 
 # TODO:
 

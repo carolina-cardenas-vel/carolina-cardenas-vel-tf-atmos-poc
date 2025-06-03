@@ -16,7 +16,9 @@ This project uses Terraform and Atmos to deploy a small Flask app.
 TF_VAR_tenant_id=xxxx-xxx-xxx-x-x-xxxx
 TF_VAR_subscription_id=xxxx-xxx-xxx-x-x-xxxx
 ```
-4. Run Atmos either in interactive mode or with the following commands:
+4. Create an ssh key with this name and path `~/.ssh/ssh-vm-tf-poc.pub`. It will be used for setting up the VM.
+
+5. Run Atmos either in interactive mode or with the following commands:
 
 - `atmos terraform init <component-name> -s dev`
 
@@ -24,11 +26,11 @@ TF_VAR_subscription_id=xxxx-xxx-xxx-x-x-xxxx
 
 - `atmos terraform apply <component-name> -s dev`
 
-5. Applying the `lb` module will print three outputs. Copy the value of `public_ip` and paste it into the browser. The app is reachable under `http://<loadbalancer-ip>/quote`.
+6. Applying the `lb` module will print three outputs. Copy the value of `public_ip` and paste it into the browser. The app is reachable under `http://<loadbalancer-ip>/quote`.
 
-6. Wait for some time to access the app after the VM has been deployed. It needs a moment to provision the necessary packages to run the app. 
+7. Wait for some time to access the app after the VM has been deployed. It needs a moment to provision the necessary packages to run the app. 
 
-7. Be humbled by that quote of the day. 
+8. Be humbled by that quote of the day. 
 
 # TODO:
 
