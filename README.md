@@ -35,4 +35,8 @@ These are the components that will be created by this demo:
 - VM
 - Nic
 
+### Deployment
+
+Refer to the README.md files in each folder for more details.
+
 
