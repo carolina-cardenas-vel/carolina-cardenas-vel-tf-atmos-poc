@@ -11,7 +11,7 @@ This is an interview exercise only.
 
 ### Description of the project
 
-With the task at hand, the following project deploys a simple Flask application running on a VM. The app displays a random quote from a set of 5. It's reachable under `http://<loadbalancer-ip>/quote`.
+With the task at hand, the following project deploys a simple Flask application running on a VM. The app displays a random quote from a set of 5. It's reachable under `http://<loadbalancer-ip>/quote` (during the review, there's a running version of this demo at `http://13.93.152.214/quote`)
 
 With the purpose of polishing my Terraform skills and have a clear picture of the components I was building and their configuration, first, I decided to create the whole project in pure Terraform. That code is found under the `tf-poc` folder. The `poc-tf-atmos` folder contains the code to my first approach to atmos.
 

@@ -9,6 +9,7 @@ This project uses Terraform to deploy a small Flask app.
 
 1. Git clone this repository
 2. Navigate to the folder `tf-poc`
+3. Create the `backend.tf.json` file. Take the `backend.tf.json.example`, rename it and adapt it.
 3. Run the following Terraform commands:
 
 - `terraform init`
@@ -25,5 +26,4 @@ This project uses Terraform to deploy a small Flask app.
 
 # TODO:
 
-- Secrets should be handled nicer (via a pipeline). Manually setting them here for ease of use of this demo.
 - Leave the creation of the security group free from hard-coded variables
